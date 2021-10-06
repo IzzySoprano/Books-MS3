@@ -1,35 +1,35 @@
-Table of Contents
+# Table of Contents
+## Overview
 
-1. Overview
+## User Experience
 
-2. User Experience
-
-3. User Stories
+## User Stories
 
     - First Time Visitor Goals
     - Returning Visitor Goals
     - Developer Goals
 
-- Structure
+### - Structure
 
-- Skeleton
+### - Skeleton
 
-- Wireframes
+### - Wireframes
 
-3. Design
+## Design
 
     - Colour Scheme
     - Fonts
     - Imagery
 
-4. Features
+## Features
 
-5. Languages Used
+## Languages Used
 
-6. Frameworks, Libaries, Tools
+## Frameworks, Libaries, Tools
 
-7. Testing
+## Testing
 
-8. Deployment
+## Deployment
 
-9. Credits
+
+## Credits
