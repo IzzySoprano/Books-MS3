@@ -19,10 +19,10 @@
 ![Home](assets/Wireframes/Home.png)
 
 **Login**
-![Login](assets\Wireframes\Login.png)
+![Login](assets/Wireframes/Login.png)
 
 **Register**
-![Register](assets\Wireframes\Register.png)
+![Register](assets/Wireframes/Register.png)
 
 ## Design
 
