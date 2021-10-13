@@ -16,7 +16,7 @@
 ### - Wireframes
 
 **Home**
-![Home](assets\Wireframes\Home.png)
+![Home](assets/Wireframes/Home.png)
 
 **Login**
 ![Login](assets\Wireframes\Login.png)
