@@ -15,6 +15,17 @@
 
 ### - Wireframes
 
+**Home**
+![assets\Wireframes\Home.png]
+
+
+**Login**
+![assets\Wireframes\Login.png]
+
+
+**Register**
+![assets\Wireframes\Register.png]
+
 ## Design
 
     - Colour Scheme
