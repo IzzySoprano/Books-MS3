@@ -23,7 +23,12 @@ body::-webkit-scrollbar-track {
 
 .container {
   min-height: 100%;
-  position: relative;
+}
+
+#login-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .wallpaper {
@@ -69,7 +74,6 @@ nav ul li a {
 
 /* Footer */
 footer {
-  position: absolute;
   background: black;
   top: 100vh;
   height: auto;
@@ -144,14 +148,31 @@ footer {
   font-weight: 200;
 }
 
+/* Home */
+.bg-wallpaper {
+  display: block;
+  text-align: center;
+  justify-content: center;
+}
+
+.wallpaper {
+  position: relative;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Login */
+.login-main-container {
+  width: 100%;
+  flex-grow: 2;
+}
+
 .login {
   background: black;
   color: #ffffff;
-  top: 35%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  width: 30%;
+  margin: 10px auto;
   box-sizing: border-box;
   padding: 50px 30px;
 }
@@ -213,7 +234,6 @@ footer {
 }
 
 /* Register */
-
 .copy h1 {
   font-size: 2.25rem;
   font-weight: 700;
@@ -275,7 +295,7 @@ footer {
   width: 320px;
 }
 
-.input-container input[type="text"], input[type="email"], input[type="password"] {
+.input-container input[type="text"], .input-container input[type="email"], .input-container input[type="password"] {
   display:block;
   width: 100%;
   box-sizing: border-box;
@@ -315,15 +335,13 @@ footer {
 .checkbox-container {
   display: block;
   position: relative;
-  /* padding-left: 2rem; */
   cursor: pointer;
   user-select: none;
-  /* margin: 0 0 1.25rem */
 }
 
 .checkbox-container input:checked~.checkmark {
-  background-color: var(--primary-blue);
-  border: 1px solid var(--primary-blue);
+  background-color: black;
+  border: 1px solid black;
 }
 .checkmark {
   position: absolute;
@@ -334,7 +352,6 @@ footer {
   border-radius: 2px;
   top: -4px;
   left: 18rem;
-  /* left:0 */
 }
 
 .checkmark::after {
@@ -360,7 +377,7 @@ footer {
 .signup-btn {
   display: block;
   width: 100%;
-  background: var(--primary-blue);
+  background: red;
   color: white;
   font-weight: 700;
   border: none;
@@ -372,7 +389,7 @@ footer {
 }
 
 .signup-btn:hover {
-  background: #2c4893;  
+  background: #ffc107;  
 }
 
 @media screen and (min-width: 750px) {
