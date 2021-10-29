@@ -30,23 +30,23 @@
 
 ## Overview
 
-BookTube is a site that allows users to keep a log of the books they have read and share their log through reviews with others. 
+Books is a site that allows users to keep a log of the books they have read and share their log through reviews with others. 
 Users who do not want to register to the site will be able to view the books that have been reviewed. 
 When a user decides to register, they will be able to log books they have read and share their review.
 
 # User Experience
 
 ### User Stories
-    - As a user, I want to be able to register to BookTube using an email and password, log in and review a book I have read
+    - As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
     - As a user, I want to be able to search the site to find other reviews
     - As a user, I want an easy to navigate around site 
-    - As a user, I want to be able to access BookTube's social media accounts
+    - As a user, I want to be able to access Books's social media accounts
     - As a user, I want the structure of the site to be easy on the eye
-    - As a user, I want to be able securely log out of BookTube
+    - As a user, I want to be able securely log out of Books
     - As a user, I want to be able to access the site on all devices
 ### First Time Visitor Goals
     - A simple and responsive navigation throughout the site
-    - To be able to register to BookTube
+    - To be able to register to Books
     - To be able to login and post a review
 ### Returning Visitor Goals
     - To be able to search for reviews
@@ -60,7 +60,7 @@ When a user decides to register, they will be able to log books they have read a
 
 User Story:
 
-> As a user, I want to be able to register to BookTube using an email and password, log in and review a book I have read
+> As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
 
     Criteria
         - Site must have a database that is fully functional 
@@ -92,7 +92,7 @@ User Story:
     
 User Story:
 
-> As a user, I want to be able to access BookTube's social media accounts
+> As a user, I want to be able to access Books's social media accounts
 
     Criteria
         - Have the 
@@ -113,7 +113,7 @@ User Story:
 
 User Story:
 
-> As a user, I want to be able securely log out of BookTube
+> As a user, I want to be able securely log out of Books
 
     Criteria
         - Have a functional database that allows users to register using their email and password 
