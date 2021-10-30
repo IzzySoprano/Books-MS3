@@ -20,9 +20,22 @@
 
 5. [Languages Used](#LanguagesUsed)
 
+    - HTML
+    - CSS
+    - Python
+
 6. [Frameworks, Libaries, Tools](#FrameworksLibariesTools)
 
+    - Flask
+    - Heroku
+    - mongoDB
+
 7. [Testing](#Testing)
+
+    1. First initial deployment to heroku failed due to the procfile
+
+    ![Heroku deployment](static\images\Heroku-deploy-fail.png)
+
 
 8. [Deployment](#Deployment)
 
