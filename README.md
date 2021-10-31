@@ -20,22 +20,9 @@
 
 5. [Languages Used](#LanguagesUsed)
 
-    - HTML
-    - CSS
-    - Python
-
 6. [Frameworks, Libaries, Tools](#FrameworksLibariesTools)
 
-    - Flask
-    - Heroku
-    - mongoDB
-
 7. [Testing](#Testing)
-
-    1. First initial deployment to heroku failed due to the procfile
-
-    ![Heroku deployment](static\images\Heroku-deploy-fail.png)
-
 
 8. [Deployment](#Deployment)
 
@@ -172,10 +159,15 @@ The naigation menu will contiain the following pages:
     2. CSS
     3. Python
 ## Frameworks, Libaries, Tools
-    1. MongoDB 
-    2. Flask
+    - Flask
+    - Heroku
+    - mongoDB
 
 ## Testing
+ 1. First initial deployment to heroku failed due to the procfile
+
+    ![Heroku deployment](static/images/Heroku-deploy-fail.png)
+
 ## Deployment
     - Heroku
 
