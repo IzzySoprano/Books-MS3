@@ -164,11 +164,19 @@ The naigation menu will contiain the following pages:
     - mongoDB
 
 ## Testing
- 1. First initial deployment to heroku failed due to the procfile
+ 1. **First initial deployment to heroku failed due to the UTF encoding. After changing to 'Save with encoding', I managed to successfully deploy to Heroku**
 
-    ![Heroku deployment](static/images/Heroku-deploy-fail.png)
+    ![Heroku deployment fai](static/images/Heroku-deploy-fail.png)
 
+2. **Successful deployment**
+
+    ![Heroku deployment](static/images/Deployment-success.png)
+
+3. **Application error**
+
+    Upon successfully deployment, I encountered an 'Application error' for my deployment link. I found that upon looking into my heroku log, ***error code=h10*** would come up. 
+    ![Heroku application error](static/images/Application-error.png)
 ## Deployment
-    - Heroku
+    https://ms3-books.herokuapp.com/
 
 ## Credits
