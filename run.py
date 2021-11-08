@@ -4,6 +4,12 @@ from flask import (
     redirect, request, session, url_for)
 
 
+# if.os.path.exists("env.py")
+#     import env
+
+import pymongo
+
+
 app = Flask(__name__)
 
 
@@ -23,6 +29,7 @@ def register():
         print("Testing registration site")
     return render_template("register.html")
 
+    
 if __name__== "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
