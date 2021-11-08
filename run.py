@@ -3,12 +3,10 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 
-
 # if.os.path.exists("env.py")
 #     import env
 
-import pymongo
-
+# import pymongo
 
 app = Flask(__name__)
 
