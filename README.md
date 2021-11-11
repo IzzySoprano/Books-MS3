@@ -58,7 +58,7 @@ When a user decides to register, they will be able to log books they have read a
 
 ## - Structure
 
-User Story:
+### User Story:
 
 > As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
 
@@ -68,7 +68,7 @@ User Story:
     Implementation
         - Install mongodb database
 
-User Story:
+### User Story:
 
 > As a user, I want to be able to search the site to find other reviews
 
@@ -78,7 +78,7 @@ User Story:
     Implementation
         - Add in a search bar that is functional with the database 
 
-User Story:
+### User Story:
 
 > As a user, I want an easy to navigate around site
 
@@ -90,7 +90,7 @@ User Story:
     Implementation
         - The UI/UX for the site has to be consistent and clean in order to achieve this 
     
-User Story:
+### User Story:
 
 > As a user, I want to be able to access Books's social media accounts
 
@@ -100,7 +100,7 @@ User Story:
     Implementation
         - Add social media icons in the footer section of the site 
 
-User Story:
+### User Story:
 
 > As a user, I want the structure of the site to be easy on the eye
 
@@ -111,7 +111,7 @@ User Story:
         - Have a consistent UI/UX design throughout the site
         - Keeping the colour theme and font simple and consistent throughout the site
 
-User Story:
+### User Story:
 
 > As a user, I want to be able securely log out of Books
 
@@ -121,7 +121,7 @@ User Story:
     Implementation
         - Implement mongoDB and Flask into the project to link the project together
 
-User Story:
+### User Story:
 
 > As a user, I want to be able to access the site on all devices
     
@@ -164,6 +164,8 @@ The naigation menu will contiain the following pages:
     - mongoDB
 
 ## Testing
+
+**Heroku**
  1. **First initial deployment to heroku failed due to the UTF encoding. After changing to 'Save with encoding', I managed to successfully deploy to Heroku**
 
     ![Heroku deployment fai](static/images/Heroku-deploy-fail.png)
@@ -172,10 +174,21 @@ The naigation menu will contiain the following pages:
 
     ![Heroku deployment](static/images/Deployment-success.png)
 
-3. **Application error**
+3. **Application error #1**
 
     Upon successfully deployment, I encountered an 'Application error' for my deployment link. I found that upon looking into my heroku log, ***error code=h10*** would come up. 
     ![Heroku application error](static/images/Application-error.png)
+
+    ### Registration page
+    Upon first testing to see if my registration page was working, I encontered a Typo error which stated, 
+    **"rn dumps rv = _json.dumps(obj, kwargs)"**
+    ![Typo Error](static/images/Typo-error.png)
+    <br>
+    However, I successfully mananged to connect my Mongo collections to my registration page. 
+    ![Collections](static/images/Collections.png)
+
+
+
 ## Deployment
     https://ms3-books.herokuapp.com/
 
