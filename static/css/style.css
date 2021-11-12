@@ -162,16 +162,16 @@ footer {
   margin-right: auto;
 }
 
-/* Login */
+/* Login Page */
 .container {
   position: relative;
   min-height: 100vh;
 }
 
-
 .login-main-container {
   width: 100%;
   flex-grow: 2;
+  padding:50px 0 50px 0;
 }
 
 .login {
@@ -239,7 +239,7 @@ footer {
   color: #ffc107;
 }
 
-/* Register */
+/* Registeration page */
 .copy h1 {
   font-size: 2.25rem;
   font-weight: 700;
@@ -393,6 +393,7 @@ footer {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 .signup-btn:hover {
