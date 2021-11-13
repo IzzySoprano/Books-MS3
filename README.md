@@ -186,7 +186,7 @@ The naigation menu will contiain the following pages:
     <br>
     However, I successfully mananged to connect my Mongo collections to my registration page. 
     ![Collections](static/images/Collections.png)
-
+    
 
 
 ## Deployment
