@@ -1,5 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+<h1> {{msg}} </h1>
+{% endfor %}
+{%endif %}
+{% endwith %}
+
 <!-- Registration form -->
 <div class="container">
   <div class="split-screen">
@@ -21,21 +29,12 @@
         </div>
         <div class="input-container email">
           <label for="email"> Email </label>
-          <input
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            type="email"
-          />
+          <input id="email" name="email" placeholder="Your Email" type="email" />
         </div>
         <div class="input-container password">
           <label for="password"> Password </label>
-          <input
-            id="password"
-            name="password"
-            placeholder="Your password"
-            type="password"
-          />
+          <input id="password" name="password" placeholder="Your password" type="password" minlength="3"
+            maxlength="10" />
           <i class="far fa-eye-slash"></i>
         </div>
 
@@ -48,16 +47,14 @@
         <button class="signup-btn" type="submit">Register</button>
         <div class="copy legal">
           <p>
-            <span class="small"
-              >By continuing, you agree to accept our <br />
+            <span class="small">By continuing, you agree to accept our <br />
               <a href="#">Privacy Policy</a> &amp;
-              <a href="#">Terms and Conditions</a>.</span
-            >
+              <a href="#">Terms and Conditions</a>.</span>
           </p>
         </div>
       </form>
     </div>
   </div>
 
-  {% endblock %}
 </div>
+{% endblock %}
