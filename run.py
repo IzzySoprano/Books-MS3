@@ -24,7 +24,6 @@ mongo = PyMongo(app)
 def home():
     return render_template("home.html")
 
-
 # Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -32,13 +31,15 @@ def login():
         # Check if Email exists 
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
-        
+
+        # print(existing_user)
         if existing_user:
             # Ensure hashed password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["email"] = request.form.get("email").lower()
                     flash("Welcome, {}" .format(request.form.get("email")))
+                    return redirect(url_for('account'))
             else:
                 # Invalid password match
                 flash("Incorrect Password")
@@ -64,7 +65,7 @@ def register():
 
         register =  {
             "email": request.form.get("email").lower(),
-            "password": request.form.get("password")
+            "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
@@ -80,6 +81,7 @@ def account():
         # check if password exists in db
         existing_user = mongo.db.users.find_one(
             {"password": request.form.get("password").lower()})
+
 
         if existing_user:
             # ensure hashed password matches user input
@@ -101,6 +103,15 @@ def account():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+    # User Logging Out
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 # Add Book to database
