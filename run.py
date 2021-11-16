@@ -57,7 +57,7 @@ def register():
     if request.method == "POST":
         # Check to see if password exists within the database
         existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
+            {"users": request.form.get("email").lower()})
 
         if existing_user:
                 flash("email already exists")
@@ -105,12 +105,12 @@ def account():
     return render_template("login.html")
 
 
-    # User Logging Out
+# User Logging Out
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("You have been logged out")
-    session.pop("user")
+    flash("Log Out Successful")
+    session.pop("email")
     return redirect(url_for("login"))
 
 
