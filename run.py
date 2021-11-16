@@ -54,7 +54,7 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # Check to see if username exists within the database
+        # Check to see if password exists within the database
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
 
@@ -73,8 +73,38 @@ def register():
         flash("Registration successful")
     return render_template("register.html")
 
+# User log in
+@app.route("/account", methods=["GET", "POST"])
+def account():
+    if request.method == "POST":
+        # check if password exists in db
+        existing_user = mongo.db.users.find_one(
+            {"password": request.form.get("password").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+              existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("password").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("password")))
+                return redirect(
+                    url_for("account", password=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect password and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # password doesnt exist
+            flash("Incorrect password and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
 # Add Book to database
-@app.route("/add-book", methods=["GET", "POST"])
+@app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     # checks if user is logged in
     if session.get("user"):
@@ -101,7 +131,7 @@ def add_book():
             flash("Book Review Added!")
             return redirect(url_for("books"))
         categories = mongo.db.categories.find().sort("category_name", 1)
-        return render_template("add-book.html", categories=categories)
+        return render_template("add_book.html", categories=categories)
     # if user is not logged in
     else:
         flash("You need to be logged in to perform this action")
