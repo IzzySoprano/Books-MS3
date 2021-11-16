@@ -24,32 +24,6 @@ mongo = PyMongo(app)
 def home():
     return render_template("home.html")
 
-# Login Page
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method =="POST":
-        # Check if Email exists 
-        existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
-
-        # print(existing_user)
-        if existing_user:
-            # Ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["email"] = request.form.get("email").lower()
-                    flash("Welcome, {}" .format(request.form.get("email")))
-                    return redirect(url_for('account'))
-            else:
-                # Invalid password match
-                flash("Incorrect Password")
-                return redirect(url_for("login"))
-        else:
-            # Email doesn't exist
-            flash("Incorrect Email")
-            return redirect(url_for("login"))
-
-    return render_template("login.html")
 
 # User Registration 
 @app.route("/register", methods=["GET", "POST"])
@@ -69,38 +43,61 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # Put the session user into a sesion cookie 
+        # Put the session user into a session cookie 
         session["user"] = request.form.get("email").lower()
         flash("Registration successful")
+        return redirect(url_for("account", email=session["email"]))
+
     return render_template("register.html")
 
-# User log in
-@app.route("/account", methods=["GET", "POST"])
-def account():
-    if request.method == "POST":
-        # check if password exists in db
+# Login Page
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method =="POST":
+        # Check if Email exists 
         existing_user = mongo.db.users.find_one(
-            {"password": request.form.get("password").lower()})
+            {"email": request.form.get("email").lower()})
 
-
+        # print(existing_user)
         if existing_user:
-            # ensure hashed password matches user input
+            # Ensure hashed password matches user input
             if check_password_hash(
-              existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("password").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("password")))
-                return redirect(
-                    url_for("account", password=session["user"]))
+                existing_user["password"], request.form.get("password")):
+                    session["email"] = request.form.get("email").lower()
+                    flash("Welcome, {}" .format(request.form.get("email")))
+                    return redirect(url_for(
+                        "account", email=session["email"]))
             else:
-                # invalid password match
-                flash("Incorrect password and/or Password")
+                # Invalid password match
+                flash("Incorrect Password")
                 return redirect(url_for("login"))
-
         else:
-            # password doesnt exist
-            flash("Incorrect password and/or Password")
+            # Email doesn't exist
+            flash("Email doesn't exist")
             return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+# User log in
+@app.route("/account/<email>", methods=["GET", "POST"])
+def account(email):
+    # checks if user is logged in
+    if session.get("user"):
+        # grab the session user's email from the db
+        email = mongo.db.users.find_one(
+            {"email": session["user"]})["email"]
+        # display users book reviews and favourites on account page
+        if session["user"] == email:
+            books = list(mongo.db.books.find({"created_by": email}))
+            favourites = list(mongo.db.bookmarked.find(
+                {"created_by": email}))
+            return render_template("account.html", books=books,
+                                   email=email)
+    # if user is not logged in. if different user is logged in,
+    # their own account will be loaded
+    else:
+        flash("You need to be logged in to perform this action")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 

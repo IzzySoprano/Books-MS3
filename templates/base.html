@@ -22,13 +22,13 @@
         <li>
         <li><a href="{{ url_for('login') }}">Log in</a>
         <li>
-        <li><a href="{{ url_for('login') }}">Log Out</a>
-        <li>
         <li><a href="{{ url_for('register') }}">Register</a>
         <li>
-          {% if session.user %}
-        <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
+        {% if session.user %}
+        <li><a href="{{ url_for('account', email=session['email']) }}">My Account</a></li>
         <li><a href="{{ url_for('home') }}">Add Book Review</a></li>
+        <li><a href="{{ url_for('login') }}">Log Out</a>
+        <li>
         {% endif %}
       </ul>
     </nav>
