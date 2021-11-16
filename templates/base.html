@@ -20,10 +20,14 @@
       <ul>
         <li><a href="{{ url_for('home') }}">Home</a>
         <li>
-        <li><a href="{{ url_for('login') }}">Login</a>
+        <li><a href="{{ url_for('login') }}">Log in</a>
         <li>
         <li><a href="{{ url_for('register') }}">Register</a>
         <li>
+          {% if session.user %}
+          <li><a href="{{ url_for('home', email=session['user']) }}">My Account</a></li>
+          <li><a href="{{ url_for('home') }}">Add Book Review</a></li>
+          {% endif %}
       </ul>
     </nav>
     {% block content %} {% endblock %}
