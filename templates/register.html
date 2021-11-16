@@ -1,19 +1,11 @@
 {% extends "base.html" %} {% block content %}
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for msg in messages %}
-<h1> {{msg}} </h1>
-{% endfor %}
-{%endif %}
-{% endwith %}
-
 <!-- Registration form -->
 <div class="container">
   <div class="split-screen">
     <div class="left"></div>
     <div class="right">
-      <form method="POST">
+      <form method="POST" action="{{ url_for('register') }}">
         <section class="copy">
           <h2>Register</h2>
           <div class="login-container">
@@ -29,12 +21,12 @@
         </div>
         <div class="input-container email">
           <label for="email"> Email </label>
-          <input id="email" name="email" placeholder="Your Email" type="email" />
+          <input id="email" name="email" placeholder="Your Email" type="email" required />
         </div>
         <div class="input-container password">
           <label for="password"> Password </label>
           <input id="password" name="password" placeholder="Your password" type="password" minlength="3"
-            maxlength="10" />
+            maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required/>
           <i class="far fa-eye-slash"></i>
         </div>
 
