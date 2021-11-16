@@ -40,6 +40,12 @@ body::-webkit-scrollbar-track {
   height: 75%;
 }
 
+.flashes h1 {
+  display: flex;
+  justify-content: center;
+  line-height: 2;
+}
+
 /* NavBar */
 nav {
   display: flex;

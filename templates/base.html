@@ -22,15 +22,32 @@
         <li>
         <li><a href="{{ url_for('login') }}">Log in</a>
         <li>
+        <li><a href="{{ url_for('login') }}">Log Out</a>
+        <li>
         <li><a href="{{ url_for('register') }}">Register</a>
         <li>
           {% if session.user %}
-          <li><a href="{{ url_for('home', email=session['user']) }}">My Account</a></li>
-          <li><a href="{{ url_for('home') }}">Add Book Review</a></li>
-          {% endif %}
+        <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
+        <li><a href="{{ url_for('home') }}">Add Book Review</a></li>
+        {% endif %}
       </ul>
     </nav>
-    {% block content %} {% endblock %}
+
+    <section>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for msg in messages %}
+      <div class="flashes">
+        <h1> {{msg}} </h1>
+      </div>
+      {% endfor %}
+      {%endif %}
+      {% endwith %}
+    </section>
+
+    <main class="main-container">
+      {% block content %} {% endblock %}
+    </main>
 
     <!-- Footer -->
     <footer>
