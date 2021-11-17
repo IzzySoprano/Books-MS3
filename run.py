@@ -63,7 +63,7 @@ def login():
             # Ensure hashed password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["email"] = request.form.get("email").lower()
+                    session["user"] = request.form.get("email").lower()
                     flash("Welcome, {}" .format(request.form.get("email")))
                     return redirect(url_for(
                         "account", email=session["email"]))
@@ -78,35 +78,23 @@ def login():
 
     return render_template("login.html")
 
-# User log in
+# Account page
 @app.route("/account/<email>", methods=["GET", "POST"])
 def account(email):
-    # checks if user is logged in
-    if session.get("user"):
-        # grab the session user's email from the db
-        email = mongo.db.users.find_one(
-            {"email": session["user"]})["email"]
-        # display users book reviews and favourites on account page
-        if session["user"] == email:
-            books = list(mongo.db.books.find({"created_by": email}))
-            favourites = list(mongo.db.bookmarked.find(
-                {"created_by": email}))
-            return render_template("account.html", books=books,
-                                   email=email)
-    # if user is not logged in. if different user is logged in,
-    # their own account will be loaded
-    else:
-        flash("You need to be logged in to perform this action")
-        return redirect(url_for("login"))
+    # Grab the user's email from db
+    email = mongo.db.users.find_one(
+        {"email": session["user"]})["email"]
+
+    if session["user"]:
+        return render_template("account.html", email=email)    
 
     return render_template("login.html")
-
 
 # User Logging Out
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("Log Out Successful")
+    flash("You have been Logged Out")
     session.pop("email")
     return redirect(url_for("login"))
 
