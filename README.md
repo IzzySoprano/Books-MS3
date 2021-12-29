@@ -149,7 +149,7 @@ The naigation menu will contiain the following pages:
 
 ## Design
     - Colour Scheme
-![Colour Palette](static\images\Colour Palette.png)
+![Colour Palette](static/images/Colour-palette.png)
 
     - Fonts
     - Imagery
