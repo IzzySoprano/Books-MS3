@@ -95,7 +95,7 @@ When a user decides to register, they will be able to log books they have read a
 > As a user, I want to be able to access Books's social media accounts
 
     Criteria
-        - Have the 
+        - Have the site's social media links displayed in the footer
 
     Implementation
         - Add social media icons in the footer section of the site 
@@ -132,9 +132,9 @@ When a user decides to register, they will be able to log books they have read a
         - The site will be designed with a mobile first approach to ensure all webpages is working unblemsihed across mobile, tablet and computer screen devices
 ## - Skeleton
 The naigation menu will contiain the following pages:
-    -Home - home.html
-    -Register - register.html
-    -Login - login.html
+    - Home - home.html
+    - Register - register.html
+    - Login - login.html
 
 ## - Wireframes
 
@@ -149,6 +149,8 @@ The naigation menu will contiain the following pages:
 
 ## Design
     - Colour Scheme
+![Colour Palette](static\images\Colour Palette.png)
+
     - Fonts
     - Imagery
 
