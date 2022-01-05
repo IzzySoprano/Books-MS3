@@ -46,7 +46,7 @@ def register():
         # Put the session user into a session cookie 
         session["user"] = request.form.get("email").lower()
         flash("Registration successful")
-        return redirect(url_for("account", email=session["email"]))
+        return redirect(url_for("account", email=session["user"]))
 
     return render_template("register.html")
 
@@ -66,7 +66,7 @@ def login():
                     session["user"] = request.form.get("email").lower()
                     flash("Welcome, {}" .format(request.form.get("email")))
                     return redirect(url_for(
-                        "account", email=session["email"]))
+                        "account", email=session["user"]))
             else:
                 # Invalid password match
                 flash("Incorrect Password")
@@ -83,7 +83,7 @@ def login():
 def account(email):
     # Grab the user's email from db
     email = mongo.db.users.find_one(
-        {"email": session["user"]})["email"]
+        {"email": session["user"]})
 
     if session["user"]:
         return render_template("account.html", email=email)    
@@ -95,7 +95,7 @@ def account(email):
 def logout():
     # remove user from session cookies
     flash("You have been Logged Out")
-    session.pop("email")
+    session.pop("user")
     return redirect(url_for("login"))
 
 
