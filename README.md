@@ -148,11 +148,12 @@ The naigation menu will contiain the following pages:
 ![Register](assets/Wireframes/Register.png)
 
 ## Design
-    - Colour Scheme
+#### Colour Scheme
 ![Colour Palette](static/images/Colour-palette.png)
+#### Fonts
+I will use the 'Courier' font family for the body of the site. This will give it a professional feel and suit the site's aims.  
 
-    - Fonts
-    - Imagery
+#### Imagery
 
 ## Features
 
@@ -188,9 +189,6 @@ The naigation menu will contiain the following pages:
     <br>
     However, I successfully mananged to connect my Mongo collections to my registration page. 
     ![Collections](static/images/Collections.png)
-    
-
-
 ## Deployment
     https://ms3-books.herokuapp.com/
 
