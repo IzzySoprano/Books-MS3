@@ -95,8 +95,8 @@ def account(email):
 def logout():
     # remove user from session cookies
     flash("You have been Logged Out")
-    session.pop("user")
-    return redirect(url_for("login"))
+    session.clear()
+    return redirect(url_for("home"))
 
 
 # Add Book to database
