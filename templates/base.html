@@ -11,22 +11,22 @@
   <title>Books</title>
 </head>
 
-<body>
+<header>
   <div class="container">
     <!-- Nav Bar -->
     <nav>
       <img class="logo" src="{{url_for('static', filename='/images/Books.png')}}" alt="logo" />
-
       <ul>
-        <li><a href="{{ url_for('home') }}">Home</a></li>
         {% if session.user %}
-            <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
-            <li><a href="{{ url_for('home') }}">Add Book Review</a></li>
-            <li><a href="{{ url_for('login') }}">Log Out</a>
-        {% else %}
-            </li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="{{ url_for('login') }}">Log in</a></li>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
+        <li><a href="{{ url_for('add_book') }}">Add Book Review</a></li>
+        <li><a href="{{ url_for('logout') }}">Log Out</a>
+          {% else %}
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Log in</a></li>
+        </li>
         {% endif %}
       </ul>
     </nav>
@@ -76,6 +76,6 @@
       </div>
     </footer>
   </div>
-</body>
+</header>
 
 </html>
