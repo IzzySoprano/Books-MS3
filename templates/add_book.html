@@ -1,15 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3> Add Book Review</h3>
 
 <form method="POST" action="{{ url_for('add_book') }}">
+    <div class="book-review-form">
+
+        <h1>Add Book Review </h1>
+
+        <!-- Book Title -->
+        <div class="book-title">
+            <input id="book_title" name="book_title" minlength="2" maxlength="50" type="text" placeholder="Title" required>
+        </div>
+
+        <!-- Book Author -->
+        <div class="book-author">
+            <input id="author" name="book-author" minlength="2" maxlength="50" type="text" placeholder="Author" required>
+        </div>
+
+        <!-- Genre Selection  -->
+        <label for="genre">Choose a genre:</label>
+        
+        <select name="genres" id="genres">
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science Fiction</option>
+            <option value="dystopian">Dystiopian</option>
+            <option value="adventure">Adventure</option>
+            <option value="romance">Romance</option>
+            <option value="mystery">Detective & Mystery</option>
+            <option value="horror">Horror</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+        </select>
+        
+        <!-- Release Year -->
+        <div class="release-year">
+            <input id="release-year" name="release-year" minlength="2" maxlength="50" type="text" placeholder="Release Year" required>
+        </div>
+        
+        <!-- Book Image URL -->
+        <div class="url">
+            <input id="url" name="url" type="text" placeholder="Book Image URL (Optional)" required>
+        </div>
+        
+        <!-- Star Rating -->
+        <label for="rating">Rating</label>
+        <select name="rating" id="rating">
+          <option value="one">One</option>
+          <option value="two">Two</option>
+          <option value="three">Three</option>
+          <option value="four">Four</option>
+          <option value="five">Five</option>
+         
+        </select>
+
+        <!-- Review -->
+        <div class="review">
+            <input id="review" name="review" minlength="2" type="text" placeholder="Review" required>
+        </div>
+
+        <div class="submit" id="submit">
+            Add Book Review
+        </div>
 
 </form>
-
-
-
-
-
-
 {% endblock %}
