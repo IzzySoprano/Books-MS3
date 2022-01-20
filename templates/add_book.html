@@ -21,15 +21,11 @@
         <label for="genre">Choose a genre:</label>
         
         <select name="genres" id="genres">
-            <option value="fantasy">Fantasy</option>
-            <option value="science-fiction">Science Fiction</option>
-            <option value="dystopian">Dystiopian</option>
-            <option value="adventure">Adventure</option>
-            <option value="romance">Romance</option>
-            <option value="mystery">Detective & Mystery</option>
-            <option value="horror">Horror</option>
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
+            {% for genre in genres %}
+
+            <option value="{{ genre.genre_name  }} "> {{genre.genre_name}} </option>
+
+            {% endfor  %}      
         </select>
         
         <!-- Release Year -->
@@ -58,9 +54,9 @@
             <input id="review" name="review" minlength="2" type="text" placeholder="Review" required>
         </div>
 
-        <div class="submit" id="submit">
+        <button class="submit" type="submit" id="submit" >
             Add Book Review
-        </div>
+        </button>
 
 </form>
 {% endblock %}
