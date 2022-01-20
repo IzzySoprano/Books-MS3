@@ -20,22 +20,27 @@
 </div>
 
 <!-- Book Reviews section-->
+
+{% for book in books %}
+
+
 <div class="book-container">
   <div class="card">
     <div class="image">
       <img href="#" src="">
     </div>
     <div class="content">
-      <h3>Title:</h3>
-      <p>Author:
-        Genre:
-        Rating:
-        Book review:
-        Purchase Link:
+      <h3>{{book.book_title}}</h3>
+      <p>{{book.author}}
+        {{book.genre}}
+        {{book.rating}}
+        {{book.book_review}}
+        {{book.purchase_link}}
       </p>
     </div>
   </div>
 </div>
 
+{% endfor %}
 
 {% endblock %}
