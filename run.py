@@ -114,7 +114,7 @@ def add_book():
             book = {
                 "book_title": request.form.get("book_title"),
                 "author": request.form.get("author"),
-                "genre": request.form.get("genre_type"),
+                "genre": request.form.get("genre"),
                 "release_year": request.form.get("release_year"),
                 "image_url": request.form.get("image_url"),
                 "rating": request.form.get("rating"),
@@ -125,9 +125,9 @@ def add_book():
             # insert new book into db
             mongo.db.books.insert_one(book)
             flash("Book Review Added!")
-            return redirect(url_for("books"))
-        categories = mongo.db.categories.find().sort("category_name", 1)
-        return render_template("add_book.html", categories=categories)
+            return redirect(url_for("home"))
+        genres = mongo.db.genres.find().sort("genre_name", 1)
+        return render_template("add_book.html", genres=genres)
     # if user is not logged in
     else:
         flash("You need to be logged in to perform this action")
