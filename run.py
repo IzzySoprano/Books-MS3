@@ -19,10 +19,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# Home page
 @app.route("/")
 @app.route("/home", methods=["GET", "POST"])
 def home():
-    return render_template("home.html")
+    all_of_the_books_in_the_collection = mongo.db.books.find()
+    return render_template("home.html", books_variable=all_of_the_books_in_the_collection)
 
 
 # User Registration 
@@ -99,6 +101,15 @@ def logout():
     return redirect(url_for("home"))
 
 
+# Delete book functionality
+@app.route("/delete_book/<specific_bookid>",  methods=["GET", "POST"])
+def delete(specific_bookid):
+    print(specific_bookid)
+    book = mongo.db.books.find_one({'_id': ObjectId(specific_bookid)})
+    book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
+    return render_template("delete_book.html", book=book)
+
+
 # Add Book to database
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
@@ -120,7 +131,7 @@ def add_book():
                 "rating": request.form.get("rating"),
                 "book_review": request.form.get("book_review"),
                 "purchase_link": purchase_link,
-                "created_by": session["user"]
+                "created_by": session["user"],
             }
             # insert new book into db
             mongo.db.books.insert_one(book)
