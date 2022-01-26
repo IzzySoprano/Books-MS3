@@ -24,10 +24,9 @@ body::-webkit-scrollbar {
 .wallpaper {
   display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
-  height: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 
 .flashes h1 {
@@ -144,25 +143,16 @@ footer {
 }
 
 /* Home */
-.bg-wallpaper {
-  display: block;
-  justify-content: center;
-}
-
-.wallpaper {
+.welcome-text {
+  padding: 100px;
   position: relative;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  bottom: 190px;
 }
 
 .book-container {
-  display: grid;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 350px 350px 350px;
+  display: inline-flex;
   position : relative;
-  align-items : center;
-  padding : 100px;  
+  padding : 20px;  
 }
 
 .book-container .card {
@@ -184,12 +174,10 @@ footer {
   height: 320px;    
 }
 
-
 .book-container .card .image {
   position : relative;
   width : 260px;
   height : 260px;
-  
   top : -40%;
   left: 8px;
   box-shadow : 0 5px 20px rgba(0,0,0,0.2);
@@ -207,7 +195,6 @@ footer {
   padding : 10px 15px;
   color : #111;
   text-align : center;
-  
   visibility : hidden;
   opacity : 0;
   transition : 0.3s ease-in-out;
@@ -499,8 +486,6 @@ footer {
   font-size: 16px;
 }
 
-/* .book-review-form input */
-
 .submit {
   border: none;
   outline: none;
@@ -515,5 +500,3 @@ footer {
   top: 20px;
   padding: 10px;
 }
-
-
