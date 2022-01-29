@@ -2,21 +2,22 @@
 # 1. [Overview](#Overview)
 # 2. [User Experience](#UX-(UserExperience))
 
-   - [User Stories](##UserStories)
-      - First Time Visitor Goals
-      - Returning Visitor Goals
-      - Developer Goals
+[User Stories](##UserStories)
+First Time Visitor Goals
+Returning Visitor Goals
+Developer Goals
 
-   - [Structure](##Structure)
-   - [Skeleton](##Skeleton)
-   - [Wireframes](##Wireframes)
+[Structure](##Structure)
+[Skeleton](##Skeleton)
+[Wireframes](##Wireframes)
 
 # 3. [Design](#Design)
-      - Colour Scheme
-      - Fonts
-      - Imagery
-      - Back-end Design
-      - Frot-end Design
+
+### Colour Scheme
+### Fonts
+### Imagery
+### Back-end Design
+### Front-end Design
 
 # 4. [Features](#Features)
 
@@ -25,14 +26,14 @@
 # 6. [Frameworks, Libaries, Tools](#FrameworksLibariesTools)
 
 # 7. [Testing](#Testing)
-- [Bugs](###Bugs)
+[Bugs](###Bugs)
 
 # 8. [Deployment](#Deployment)
 
 # 9. [Credits](#Credits)
 
 # Overview
-![Logo](static\images\Books.png)
+![Logo](static/images/Books.png)
 **Books** is a site that allows users to keep a log of the books they have read and share their log through reviews with others. 
 Users who do not want to register to the site will be able to view the books that have been reviewed. 
 When a user decides to register, they will be able to log books they have read and share their review.
@@ -148,10 +149,12 @@ the navigation menu will consist of:
 # Design
 ### Colour Scheme
 I've chosen three colours to keep the UI/UX clean and keep the colour scheme of the site consistent by adding this colours to the navbar, footer, login and registration pages. 
+
 I'v gone with:
-#000000 | Black
-#FCFCFF | White
-#FF0030 | Light Orange 
+
+- #000000 | Black
+- #FCFCFF | White
+- #FF0030 | Light Orange 
 
 ![Colour Palette](static/images/Colour-palette.png)
 ### Fonts
