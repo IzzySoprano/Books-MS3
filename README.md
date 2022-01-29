@@ -8,9 +8,9 @@
   - Returning Visitor Goals
   - Developer Goals
 
-    - [Structure](##Structure)
-    - [Skeleton](##Skeleton)
-    - [Wireframes](##Wireframes)
+    [Structure](##Structure)
+    [Skeleton](##Skeleton)
+    [Wireframes](##Wireframes)
 
 3. [Design](#Design)
 
@@ -256,27 +256,27 @@ Heroku is a platform as a service (PaaS) that enables developers to build, run, 
 
 In doing this project, I've encountered many bugs and errors in creating this site. I have tried to make sure I keep track of each error to showcase them and explain the error as clearly as possible in my README.
 
-**Error**
+#### ***Error #1***
 First initial deployment to heroku failed due to the UTF encoding.
 
-**Solution**
+#### ***Solution***
 After changing to 'Save with encoding', I managed to successfully deploy to Heroku
 ![Heroku deployment fai](static/images/Heroku-deploy-fail.png)
 
-**Error**
+#### ***Error #2***
 Upon first testing to see if my registration page was working and users were able to register, I encontered a Typo error which stated, **rn dumps rv = \_json.dumps(obj, kwargs)**
 This error prevented me from adding the user to my Mongo collection
 ![Typo Error](static/images/Typo-error.png)
 
-**Solution**
+#### ***Solution***
 After speaking with tutor support, I successfully mananged to add my users to my Mongo collections everytime a user registered.
 ![Collections](static/images/Collections.png)
 
-**Error**
+#### ***Error***
 Upon successfully deployment, I encountered an 'Application error' for my deployment link. I found that upon looking into my heroku log, **_error code=h10_** would come up.
 ![Heroku application error](static/images/Application-error.png)
 
-**Solution**
+#### ***Solution***
 The solution was that there was a bug in my Procfile. After speaking my mentor, he pointed out that I hadn't correctly typed:
 `web:gunicorn run:app`
 
