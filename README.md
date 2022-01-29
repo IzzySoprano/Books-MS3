@@ -3,9 +3,9 @@
 # 2. [User Experience](#UX-(UserExperience))
 
 [User Stories](##UserStories)
-First Time Visitor Goals
-Returning Visitor Goals
-Developer Goals
+    First Time Visitor Goals
+    Returning Visitor Goals
+    Developer Goals
 
 [Structure](##Structure)
 [Skeleton](##Skeleton)
