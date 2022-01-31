@@ -7,43 +7,42 @@
 </div>
 
 <div class="welcome-text">
-<p>Welcome to Books! The site where you can share reviews of your favourite books with other avid readers. On our
-  site, you can read reviews created by people who have read them independently; no paid reviews will ever be on our
-  site.
+  <p>Welcome to Books! The site where you can share reviews of your favourite books with other avid readers. On our
+    site, you can read reviews created by people who have read them independently; no paid reviews will ever be on our
+    site.
 
-  Feel free to take a look around, and if you like what you see, why not register and share your own reviews?
+    Feel free to take a look around, and if you like what you see, why not register and share your own reviews?
 
-  Register here! Already a member? Log In here!
+    Register here! Already a member? Log In here!
 
-  Once you're logged in, why not leave a review and share your thoughts with the Books community!</p>
+    Once you're logged in, why not leave a review and share your thoughts with the Books community!</p>
 </div>
 
 <!-- Book Reviews section-->
 
-{% for book in books_variable %}
-
 <div class="book-container">
+  {% for book in books_variable %}
+
   <div class="card">
+    <img src=" {{ book.image_url }} ">
     <div class="image">
-      <img src=" {{ book.image_url }} ">
+      <div class="book-details">
+        <h3> Title: {{- book.book_title -}}</h3>
+        <h5> Author: {{- book.author -}}</h5>
+        <h5> Genre: {{- book.genre -}}</h5>
+        <h5> Rating: {{- book.rating -}}</h5>
+        <h5> Review: {{- book.book_review -}}</h5>
+        <h5> <a href="{{- book.purchase_link -}}"> Purchase Link </a></h5>
+      </div>
     </div>
-    <div class="content">
-      <h3>{{- book.book_title -}}</h3>
-      <p>{{- book.author -}}
-        {{- book.genre -}}
-        {{- book.rating -}}
-        {{- book.book_review -}}
-        {{- book.purchase_link -}}
-      </p>
-    </div>
+
+    <form action='' method="post">
+      <input type="submit" value="">
+      <a href='/delete_book/{{book._id}}'>Delete</a>
+    </form>
   </div>
+
+  {% endfor %}
 </div>
-
-<form action='' method="post">
-  <input type= "submit" value="" >
-  <a href='/delete_book/{{book._id}}'>Delete</a>
-</form>
-
-{% endfor %}
 
 {% endblock %}
