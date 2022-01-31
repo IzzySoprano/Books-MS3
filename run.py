@@ -104,7 +104,6 @@ def logout():
 # Delete book functionality
 @app.route("/delete_book/<specific_bookid>",  methods=["GET", "POST"])
 def delete(specific_bookid):
-    print(specific_bookid)
     book = mongo.db.books.find_one({'_id': ObjectId(specific_bookid)})
     book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
     return render_template("delete_book.html", book=book)
@@ -125,7 +124,7 @@ def add_book():
             book = {
                 "book_title": request.form.get("book_title"),
                 "author": request.form.get("author"),
-                "genre": request.form.get("genre"),
+                "genre": request.form.get("genres"),
                 "release_year": request.form.get("release_year"),
                 "image_url": request.form.get("image_url"),
                 "rating": request.form.get("rating"),
