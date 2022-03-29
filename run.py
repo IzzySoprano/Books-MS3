@@ -52,6 +52,7 @@ def register():
 
     return render_template("register.html")
 
+
 # Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -80,6 +81,7 @@ def login():
 
     return render_template("login.html")
 
+
 # Account page
 @app.route("/account/<email>", methods=["GET", "POST"])
 def account(email):
@@ -91,6 +93,7 @@ def account(email):
         return render_template("account.html", email=email)    
 
     return render_template("login.html")
+
 
 # User Logging Out
 @app.route("/logout")
@@ -104,6 +107,7 @@ def logout():
 # Delete book functionality
 @app.route("/delete_book/<specific_bookid>",  methods=["GET", "POST"])
 def delete(specific_bookid):
+
     book = mongo.db.books.find_one({'_id': ObjectId(specific_bookid)})
     book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
     return render_template("delete_book.html", book=book)
@@ -142,6 +146,28 @@ def add_book():
     else:
         flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
+
+# Edit Book Review
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("edit_book.html", book=book, genres=genres)
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
 
     
 if __name__== "__main__":

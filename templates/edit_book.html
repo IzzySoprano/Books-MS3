@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Edit Book Review</h3>
+
+<!-- Edit Book Review Card -->
+<form method="POST" action="{{ url_for('edit_book', book_id=book._id) }}">
+
+    <!-- Book Title -->
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-book green-text prefix"></i>
+            <input id="book_title" name="book_title" minlength="2" maxlength="50" value="{{ book.book_title }}"
+                type="text" class="validate" required>
+            <label for="book_title">Book Title</label>
+        </div>
+    </div>
+    <!-- Book Author -->
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-pencil-alt green-text prefix"></i>
+            <input id="author" name="author" minlength="2" maxlength="50" value="{{ book.author }}" type="text"
+                class="validate" required>
+            <label for="author">Author</label>
+        </div>
+    </div>
+    <!-- Genre Selection -->
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-book-reader green-text prefix"></i>
+            <label for="genre">Choose a genre:</label>
+
+            <select name="genres" id="genres">
+                {% for genre in genres %}
+
+                <option value="{{ genre.genre_name  }} "> {{genre.genre_name}} </option>
+
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- Release Year -->
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-calendar-alt green-text prefix"></i>
+            <input id="release_year" name="release_year" type="text" value="{{ book.release_year }}" pattern="[0-9]{4}"
+                class="validate" required>`
+            <label for="release_year">Release Year (e.g. 2010)</label>
+        </div>
+    </div>
+    <!-- Book Image Url -->
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-image green-text prefix"></i>
+            <input id="image_url" name="image_url" type="text" class="validate" value="{{ book.image_url }}" required>
+            <label for="image_url">Book Image URL</label>
+        </div>
+    </div>
+    <br>
+    <!-- Review Section -->
+    <div class="row">
+        <h5>Leave A Review (Optional)</h5>
+        <div class="input-field col s12">
+            <textarea id="book_review" name="book_review" class="materialize-textarea validate" required>
+                        {{- book.book_review -}}
+                    </textarea>
+            <label for="book_review">Review</label>
+        </div>
+    </div>
+    <!-- Edit purchase link -->
+    {% if session.user|lower == "admin"|lower %}
+    <div class="row">
+        <h5>Purchase Link</h5>
+        <div class="input-field col s12">
+            <input id="purchase_link" name="purchase_link" type="text" class="validate"
+                value="{{ book.purchase_link }}">
+            <label for="purchase_link">Purchase Link</label>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Cancel and Edit Buttons -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('home') }}" class="btn-large red darken-2 text-shadow waves-effect waves-light">
+                Cancel <i class="fas fa-times-circle right"></i>
+            </a>
+            <button type="submit" class="btn-large green accent-4 text-shadow waves-effect waves-light">
+                Edit Review <i class="fas fa-plus-square right"></i>
+            </button>
+        </div>
+    </div>
+</form>`
+
+{% endblock %}
