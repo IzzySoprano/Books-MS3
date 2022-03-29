@@ -8,9 +8,9 @@
   - Returning Visitor Goals
   - Developer Goals
 
-    [Structure](##Structure)
-    [Skeleton](##Skeleton)
-    [Wireframes](##Wireframes)
+- [Structure](##Structure)
+- [Skeleton](##Skeleton)
+- [Wireframes](##Wireframes)
 
 3. [Design](#Design)
 
@@ -272,7 +272,7 @@ This error prevented me from adding the user to my Mongo collection
 After speaking with tutor support, I successfully mananged to add my users to my Mongo collections everytime a user registered.
 ![Collections](static/images/Collections.png)
 
-#### ***Error***
+#### ***Error #3***
 Upon successfully deployment, I encountered an 'Application error' for my deployment link. I found that upon looking into my heroku log, **_error code=h10_** would come up.
 ![Heroku application error](static/images/Application-error.png)
 
