@@ -12,20 +12,19 @@
     site.
 
     Feel free to take a look around, and if you like what you see, why not register and share your own reviews?
-
-    Register here! Already a member? Log In here!
-
-    Once you're logged in, why not leave a review and share your thoughts with the Books community!</p>
+    
+    Once you're logged in, why not leave a review and share your thoughts with the Books community!
+    <a href="{{ url_for('register') }}">Register Here</a>
+  </p>
 </div>
 
 <!-- Book Reviews section-->
-
 <div class="book-container">
   {% for book in books_variable %}
 
   <div class="card">
     <img src=" {{ book.image_url }} ">
-    <div class="image">
+   
       <div class="book-details">
         <h3> Title: {{- book.book_title -}}</h3>
         <h5> Author: {{- book.author -}}</h5>
@@ -34,14 +33,13 @@
         <h5> Review: {{- book.book_review -}}</h5>
         <h5> <a href="{{- book.purchase_link -}}"> Purchase Link </a></h5>
       </div>
-    </div>
 
-    <form action='' method="post">
+    <form action='{{ url_for('add_book') }}' method="method">
+      <a class="button" href='/delete_book/{{book._id}}'>Delete</a>
+      <a class="button" href='{{ url_for('edit_book', book_id=book._id) }}'>Edit</a>
       <input type="submit" value="">
-      <a href='/delete_book/{{book._id}}'>Delete</a>
     </form>
   </div>
-
   {% endfor %}
 </div>
 
