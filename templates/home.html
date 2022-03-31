@@ -12,7 +12,7 @@
     site.
 
     Feel free to take a look around, and if you like what you see, why not register and share your own reviews?
-    
+
     Once you're logged in, why not leave a review and share your thoughts with the Books community!
     <a href="{{ url_for('register') }}">Register Here</a>
   </p>
@@ -24,20 +24,21 @@
 
   <div class="card">
     <img src=" {{ book.image_url }} ">
-   
-      <div class="book-details">
-        <h3> Title: {{- book.book_title -}}</h3>
-        <h5> Author: {{- book.author -}}</h5>
-        <h5> Genre: {{- book.genre -}}</h5>
-        <h5> Rating: {{- book.rating -}}</h5>
-        <h5> Review: {{- book.book_review -}}</h5>
-        <h5> <a href="{{- book.purchase_link -}}"> Purchase Link </a></h5>
-      </div>
+
+    <div class="book-details">
+      <h3> Title: {{- book.book_title -}}</h3>
+      <h5> Author: {{- book.author -}}</h5>
+      <h5> Genre: {{- book.genre -}}</h5>
+      <h5> Rating: {{- book.rating -}}</h5>
+      <h5> Review: {{- book.book_review -}}</h5>
+      <h5> <a href="{{- book.purchase_link -}}"> Purchase Link </a></h5>
+    </div>
 
     <form action='{{ url_for('add_book') }}' method="method">
+      {% if session.user %}
       <a class="button" href='/delete_book/{{book._id}}'>Delete</a>
       <a class="button" href='{{ url_for('edit_book', book_id=book._id) }}'>Edit</a>
-      <input type="submit" value="">
+      {% endif %}
     </form>
   </div>
   {% endfor %}
