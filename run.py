@@ -97,6 +97,26 @@ def account(email):
     return render_template("login.html")
 
 
+# users profile page
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(user):
+    # checks if user is logged in
+    if session.get("user"):
+         # Grab the user's email from db
+        email = mongo.db.users.find_one(
+            {"email": session["user"]})
+        # display users book reviews and favourites on profile page
+        if session["user"] == user:
+            books = list(mongo.db.books.find({"created_by": email}))
+            return render_template("account.html", books=books,
+                                   email=email)
+    # if user is not logged in. if different user is logged in,
+    # their own profile will be loaded
+    else:
+        flash("You need to be logged in to perform this action")
+        return redirect(url_for("login"))
+
+
 # User Logging Out
 @app.route("/logout")
 def logout():
@@ -136,7 +156,6 @@ def add_book():
                 "rating": request.form.get("rating"),
                 "book_review": request.form.get("book_review"),
                 "purchase_link": purchase_link,
-                "created_by": session["user"],
             }
             # insert new book into db
             mongo.db.books.insert_one(book)
