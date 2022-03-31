@@ -4,6 +4,8 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body::-webkit-scrollbar {
@@ -94,12 +96,14 @@ ul li:hover{
 }
 
 .mobile-menu {
-  display: none;
-  /* position: absolute; */
-  top: 10px;
-  /* left: 150px; */
+  position: absolute;
+  top: 80px;
+  right: 0px;
   height: calc(100vh - 50px);
-  width: 100%;
+  padding: 1rem;
+  display: none;
+  background-color: black;
+  z-index: 1000;
 }
 
 .mobile-menu li {
@@ -107,7 +111,7 @@ ul li:hover{
 }
 
 /* Media Queries for Navbar */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
   header nav {
     display: none;
   }
@@ -117,9 +121,12 @@ ul li:hover{
   }
 }
 
+main {
+  flex-grow: 1;
+}
+
 /* Footer */
 footer {
-  position: absolute;
   background: black;
   height: auto;
   width: 100%;
@@ -242,6 +249,26 @@ footer {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.card img {
+  width: 100%;
+}
+
+.book-details {
+  padding: 1rem;
+}
+
+.book-details > h5 > a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  background-color: #ffc107;
+  color: black;
+}
+
 /* Login Page */
 #login-page-container {
   display: flex;
@@ -258,7 +285,7 @@ footer {
 .login{
   background: black;
   color: #ffffff;
-  width: 30%;
+  width: clamp(300px, 90%, 600px);
   margin: 10px auto;
   box-sizing: border-box;
   padding: 50px 30px;
@@ -531,12 +558,14 @@ footer {
  }
 }
 
-
-
 @media screen and (min-width: 750px) {
   .split-screen {
     flex-direction: row;
     height: 100vh;
+  }
+
+  #hamburger-icon {
+    visibility: hidden;
   }
 
   .left, .right {
