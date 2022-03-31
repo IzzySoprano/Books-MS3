@@ -17,21 +17,6 @@
   <div id="nav">
     <img class="logo" src="{{url_for('static', filename='/images/Books.png')}}" alt="logo" />
   </div>
-  <nav>
-    <ul>
-      {% if session.user %}
-      <li><a href="{{ url_for('home') }}">Home</a></li>
-      <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
-      <li><a href="{{ url_for('add_book') }}">Add Book Review</a></li>
-      <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-      {% else %}
-      <li> <a href="{{ url_for('home') }}">Home</a></li>
-      <li id="register"><a href="{{ url_for('register') }}">Register</a></li>
-      <li id="login"><a href="{{ url_for('login') }}">Log in</a></li>
-      </li>
-      {% endif %}
-    </ul>
-  </nav>
   <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
     <div class="bar1"></div>
     <div class="bar2"></div>
@@ -50,6 +35,21 @@
       {% endif %}
     </ul> -->
   </div>
+  <nav>
+    <ul>
+      {% if session.user %}
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
+      <li><a href="{{ url_for('add_book') }}">Add Book Review</a></li>
+      <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+      {% else %}
+      <li> <a href="{{ url_for('home') }}">Home</a></li>
+      <li id="register"><a href="{{ url_for('register') }}">Register</a></li>
+      <li id="login"><a href="{{ url_for('login') }}">Log in</a></li>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
 </header>
 
 <section>
