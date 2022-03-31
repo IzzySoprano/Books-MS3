@@ -4,9 +4,10 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_login import current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
-     import env
+    import env
 
 
 app = Flask(__name__)
@@ -27,7 +28,7 @@ def home():
     return render_template("home.html", books_variable=all_of_the_books_in_the_collection)
 
 
-# User Registration 
+# User Registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -36,16 +37,16 @@ def register():
             {"users": request.form.get("email").lower()})
 
         if existing_user:
-                flash("email already exists")
-                return redirect(url_for("register"))
+            flash("email already exists")
+            return redirect(url_for("register"))
 
-        register =  {
+        register = {
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
-        # Put the session user into a session cookie 
+        # Put the session user into a session cookie
         session["user"] = request.form.get("email").lower()
         flash("Registration successful")
         return redirect(url_for("account", email=session["user"]))
@@ -56,8 +57,8 @@ def register():
 # Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method =="POST":
-        # Check if Email exists 
+    if request.method == "POST":
+        # Check if Email exists
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
 
@@ -65,18 +66,20 @@ def login():
         if existing_user:
             # Ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("email").lower()
-                    flash("Welcome, {}" .format(request.form.get("email")))
-                    return redirect(url_for(
-                        "account", email=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("email").lower()
+                flash("Welcome, {}" .format(request.form.get("email")))
+                return redirect(url_for(
+                    "account", email=session["user"]))
             else:
                 # Invalid password match
                 flash("Incorrect Password")
+                session["user"] = None
                 return redirect(url_for("login"))
         else:
             # Email doesn't exist
             flash("Email doesn't exist")
+            session["user"] = None
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -90,7 +93,7 @@ def account(email):
         {"email": session["user"]})
 
     if session["user"]:
-        return render_template("account.html", email=email)    
+        return render_template("account.html", email=email)
 
     return render_template("login.html")
 
@@ -107,10 +110,10 @@ def logout():
 # Delete book functionality
 @app.route("/delete_book/<specific_bookid>",  methods=["GET", "POST"])
 def delete(specific_bookid):
-
     book = mongo.db.books.find_one({'_id': ObjectId(specific_bookid)})
-    book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
-    return render_template("delete_book.html", book=book)
+    if session.get("user"):
+         book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
+    return render_template("home.html", book=book)
 
 
 # Add Book to database
@@ -147,32 +150,46 @@ def add_book():
         flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
 
+
 # Edit Book Review
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_book.html", book=book, genres=genres)
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
 
-    
-if __name__== "__main__":
+
+# Saving edited book review
+@app.route("/save_book/<book_id>", methods=["GET", "POST"])
+def save_book(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+
+    if session["user"]:
+            existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+    else:
+                flash(
+                    "Sorry, you are not allowed to edit that!")
+                return redirect(url_for('home', book_id=book["_id"]))
+
+    mongo.db.books.update_many({"_id": ObjectId(book_id)}, {"$set": {
+        "book_title": request.form.get("book_title"),
+        "author": request.form.get("author"),
+        "genre": request.form.get("genres"),
+        "release_year": request.form.get("release_year"),
+        "image_url": request.form.get("image_url"),
+        "rating": request.form.get("rating"),
+        "book_review": request.form.get("book_review"),
+    }}, upsert=True)
+    return redirect(url_for("home"))
+
+
+
+
+if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True) # debug should be = false when submitting. Only true when testing your application
-        
+        debug=True)  # debug should be = false when submitting. Only true when testing your application
