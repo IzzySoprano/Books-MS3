@@ -26,23 +26,23 @@
     <img src=" {{ book.image_url }} ">
 
     <div class="book-details">
-      <h3> Title: {{- book.book_title -}}</h3>
-      <h5> Author: {{- book.author -}}</h5>
-      <h5> Genre: {{- book.genre -}}</h5>
-      <h5> Year Released: {{- book.release_year -}}</h5>
-      <h5> Rating: {{- book.rating -}}</h5>
-      <h5> Review: {{- book.book_review -}}</h5>
+      <h3> Title: {{ book.book_title }}</h3>
+      <h5> Author: {{ book.author }}</h5>
+      <h5> Genre: {{ book.genre }}</h5>
+      <h5> Rating: {{ book.rating }}</h5>
+      <h5> Created by: {{ book.created_by }}</h5>
+      <h5> Year Released: {{ book.release_year }}</h5>
+      <h5> Review: {{ book.book_review }}</h5>
       <h5> <a href="{{- book.purchase_link -}}"> Purchase Link </a></h5>
     </div>
 
-    <form action='{{ url_for('add_book') }}' method="method">
-      {% if session.user %}
-      <a class="button" href='/delete_book/{{book._id}}'>Delete</a>
-      <a class="button" href='{{ url_for('edit_book', book_id=book._id) }}'>Edit</a>
-      {% endif %}
+    <form action='{{ url_for('add_book') }}' method="method"></form>
+    {% if session.user %}
+    <a class="button" href='/delete_book/{{book._id}}'>Delete</a>
+    <a class="button" href='{{ url_for('edit_book', book_id=book._id) }}'>Edit</a>
+    {% endif %}
     </form>
   </div>
   {% endfor %}
 </div>
-
 {% endblock %}
