@@ -24,7 +24,8 @@ mongo = PyMongo(app)
 @app.route("/home", methods=["GET", "POST"])
 def home():
     all_of_the_books_in_the_collection = mongo.db.books.find()
-    return render_template("home.html", books_variable=all_of_the_books_in_the_collection)
+    return render_template("home.html", 
+    books_variable=all_of_the_books_in_the_collection)
 
 
 # User Registration
@@ -87,34 +88,12 @@ def login():
 # Account page
 @app.route("/account/<email>", methods=["GET", "POST"])
 def account(email):
-    # Grab the user's email from db
-    email = mongo.db.users.find_one(
-        {"email": session["user"]})
+    books = mongo.db.books.find({'created_by': session["user"]})
 
     if session["user"]:
-        return render_template("account.html", email=email)
+        return render_template("account.html", books=books)
 
     return render_template("login.html")
-
-
-# users profile page
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(user):
-    # checks if user is logged in
-    if session.get("user"):
-         # Grab the user's email from db
-        email = mongo.db.users.find_one(
-            {"email": session["user"]})
-        # display users book reviews and favourites on profile page
-        if session["user"] == user:
-            books = list(mongo.db.books.find({"created_by": email}))
-            return render_template("account.html", books=books,
-                                   email=email)
-    # if user is not logged in. if different user is logged in,
-    # their own profile will be loaded
-    else:
-        flash("You need to be logged in to perform this action")
-        return redirect(url_for("login"))
 
 
 # User Logging Out
@@ -130,9 +109,15 @@ def logout():
 @app.route("/delete_book/<specific_bookid>",  methods=["GET", "POST"])
 def delete(specific_bookid):
     book = mongo.db.books.find_one({'_id': ObjectId(specific_bookid)})
-    if session.get("user"):
-         book = mongo.db.books.find_one_and_delete({'_id': ObjectId(specific_bookid)})
-    return render_template("home.html", book=book)
+    if session:
+            existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+            book = mongo.db.books.find_one_and_delete({'_id': 
+            ObjectId(specific_bookid)})
+    else:
+                flash(
+                    "Sorry, you are not allowed to delete that!")
+                return redirect(url_for('home', book_id=book["_id"]))
 
 
 # Add Book to database
@@ -156,6 +141,7 @@ def add_book():
                 "rating": request.form.get("rating"),
                 "book_review": request.form.get("book_review"),
                 "purchase_link": purchase_link,
+                "created_by": session["user"],
             }
             # insert new book into db
             mongo.db.books.insert_one(book)
@@ -163,10 +149,6 @@ def add_book():
             return redirect(url_for("home"))
         genres = mongo.db.genres.find().sort("genre_name", 1)
         return render_template("add_book.html", genres=genres)
-    # if user is not logged in
-    else:
-        flash("You need to be logged in to perform this action")
-        return redirect(url_for("login"))
 
 
 # Edit Book Review
@@ -183,15 +165,6 @@ def save_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
 
-    if session["user"]:
-            existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
-
-    else:
-                flash(
-                    "Sorry, you are not allowed to edit that!")
-                return redirect(url_for('home', book_id=book["_id"]))
-
     mongo.db.books.update_many({"_id": ObjectId(book_id)}, {"$set": {
         "book_title": request.form.get("book_title"),
         "author": request.form.get("author"),
@@ -204,10 +177,8 @@ def save_book(book_id):
     return redirect(url_for("home"))
 
 
-
-
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True)  # debug should be = false when submitting. Only true when testing your application
+        debug=True) 
