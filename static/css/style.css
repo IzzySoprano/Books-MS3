@@ -19,6 +19,10 @@ body::-webkit-scrollbar {
   --primary-blue:#233975;
 }
 
+.main-container {
+  flex-grow: 1;
+}
+
 /* Navbar */
 header {
   padding: 0 20px;
@@ -108,21 +112,6 @@ ul li:hover{
 
 .mobile-menu li {
   margin-bottom: 10px;
-}
-
-/* Media Queries for Navbar */
-@media only screen and (max-width: 750px) {
-  header nav {
-    display: none;
-  }
-
-  #hamburger-icon {
-    display: block;
-  }
-}
-
-main {
-  flex-grow: 1;
 }
 
 /* Footer */
@@ -541,6 +530,17 @@ footer {
   left: 250px;
   top: 20px;
   padding: 10px;
+}
+
+/* Media Queries for Navbar */
+@media only screen and (max-width: 750px) {
+  header nav {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
 }
 
 /* Media Queries for Registration page */
