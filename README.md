@@ -296,3 +296,6 @@ Login Page
 
 Registration Page
 [Design & Code Responsive Sign Up Form HTML CSS | XO PIXEL](https://www.youtube.com/watch?v=fHqjQBRQxUI&list=PL-wBgXylSsLUjExoShNxnpju44dPRpVtw&index=13)
+
+[Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
+
