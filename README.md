@@ -192,10 +192,10 @@ I will use the 'Courier' font family for the body of the site. This will give it
 ### Imagery
 
 I've adopted the logo to have two colour schemes for the site. As the logo will be displayed in the navbar, and the navbar is black, the logo will be white.
-![Logo](static\images\Books.png)
+![Logo](static/images/Books.png)
 
 The logo will also be displayed on the main home page. As the background of the home page is white, the logo will be black.
-![Logo](static\images\BooksLogo.png)
+![Logo](static/images/BooksLogo.png)
 
 ### Back-end design
 
