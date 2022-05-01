@@ -1,0 +1,12 @@
+{
+    "_id": "ObjectId()",
+  "book_title": "String",
+  "author": "String",
+  "genre": "String",
+  "release_year": "Integer",
+  "image_url": "String",
+  "rating": "string",
+  "book_review": "String",
+  "purchase_link": "String",
+  "created_by": "String"
+}
