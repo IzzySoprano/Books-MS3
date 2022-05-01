@@ -163,13 +163,13 @@ the navigation menu will consist of:
 ## - Wireframes
 
 **Home**
-![Home](assets/Wireframes/Home.png)
+![Home](assets\Wireframes/images/Home.png)
 
 **Login**
-![Login](assets/Wireframes/Login.png)
+![Login](assets/Wireframes/images/Login.png)
 
 **Register**
-![Register](assets/Wireframes/Register.png)
+![Register](assets/Wireframes/images/Register.png)
 
 # Design
 
@@ -283,8 +283,113 @@ The solution was that there was a bug in my Procfile. After speaking my mentor, 
 Once I correctly changed it to `web: gunicorn run:app --preload`, the error was solved.
 
 # Deployment
+#### Creation of a Python Virtual Environment ####
 
-Successful deployment
+*Note: The process may be different depending upon your own OS - please follow this [Python help guide](https://python.readthedocs.io/en/latest/library/venv.html)
+to understand how to create a virtual environment*
+
+#### Install the App dependencies and external libraries ####
+
+- In your IDE terminal window, install the dependencies from the requirements.txt file with the following command:
+
+```
+pip install -r requirements.txt
+```
+
+#### Create the database in MongoDB #####
+
+*Please ensure you have an account created at [MongoDB](https://account.mongodb.com/) in order to build the database*
+
+- In your MongoDB cluster, create a new database called `books-ms3`
+- Create the following collections within the new database:
+  - [books](wireframes/data-schemas/books.json)
+  - [genres](wireframes/data-schemas/genres.json)
+  - [users](wireframes/data-schemas/users.json)
+
+ #### Create `env.py` file ####
+
+- The `env.py` file should contain at least the following information:
+
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "YOUR_OWN_SECRET_KEY")
+os.environ.setdefault("MONGO_URI", "YOUR_OWN_MONGODB_URI")
+os.environ.setdefault("MONGO_DBNAME", "YOUR_OWN_MONGODB_DATABASE_NAME")
+```
+
+- Please ensure you add in your own `SECRET_KEY`, `MONGO_URI` and `MONGO_DBNAME` values.
+- ***Important:*** Add the `env.py` file to your `.gitignore` file before pushing your files to any public git repository.
+
+#### Run the application ####
+
+- To run the application enter the following command into the terminal window:
+
+```
+python3 app.py
+```
+
+### **Deploying Books-MS3 app to Heroku** ###
+
+#### Create the Heroku App ####
+
+*Ensure you have an account created at [Heroku](https://signup.heroku.com/login) in order to deploy the app*
+
+- Log in to your Heroku account dashboard and create a new app.
+- Enter the App name. 
+  - This needs to be unique and books-ms3 is already in use so choose a suitable alternative name for your own App.
+- Choose a geographical region closest to where you live.
+  - Options available on a free account are ***United States*** or ***Europe***
+
+#### Push your repository to GitHub ####
+
+- Commit and push your local repository to your GitHub linked repsitory
+
+- Ensure your local git repository has the following files in the root directory:
+
+  - Heroku `Procfile`
+  - `requirements.txt`
+
+- If these are not showing in your local Git repository for any reason, enter the following commands in the terminal window:
+
+```
+echo web: python app.py > Procfile
+pip3 freeze --local > requirements.txt
+```
+
+- Stage, commit and push your local Git repository to GitHub
+
+#### Connect Heroku to GitHub ####
+
+- In the Heroku App Settings page, open the section Config Vars
+- Add all the environmant variables from your local `env.py` file into the Heroku Config Vars:
+
+
+| Key | Value |
+| --- | --- |
+| IP | 0.0.0.0 |
+| PORT | 5000 |
+| SECRET_KEY | YOUR_OWN_SECRET_KEY |
+| MONGO_URI | YOUR_OWN_MONGODB_URI |
+| MONGO_DBNAME | YOUR_OWN_MONGODB_DATABASE_NAME |
+
+
+- In the Heroku App Deploy page: 
+  - Select GitHub from the Deployment Method options.
+  - Select Connect to GitHub.
+  - Log in to your GitHub account from Heroku to link the App to GitHub.
+  - Search for and select the repository to be linked in Github.
+  - Select Connect.
+  - Select Enable Automatic Deployment from the GitHub Master / Main branch
+
+#### Launch the App ####
+
+- Click Open App in Heroku to launch the App in a new browser window.
+
+
+**Successful deployment**
 ![Heroku deployment](static/images/Deployment-success.png)
 
 # Credits
@@ -298,4 +403,3 @@ Registration Page
 [Design & Code Responsive Sign Up Form HTML CSS | XO PIXEL](https://www.youtube.com/watch?v=fHqjQBRQxUI&list=PL-wBgXylSsLUjExoShNxnpju44dPRpVtw&index=13)
 
 [Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
-
