@@ -19,13 +19,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # Home page
 @app.route("/")
 @app.route("/home", methods=["GET", "POST"])
 def home():
-    all_of_the_books_in_the_collection = mongo.db.books.find()
-    return render_template("home.html", 
-    books_variable=all_of_the_books_in_the_collection)
+    all_of_the_books = mongo.db.books.find()
+    return render_template("home.html", books_variable=all_of_the_books)
 
 
 # User Registration
@@ -180,4 +180,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=False) 
+        debug=False)
