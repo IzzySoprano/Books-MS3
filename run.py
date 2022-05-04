@@ -1,5 +1,6 @@
+from ast import parse
 import os
-import urllib.parse as url
+from django.utils.http import urlencode
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -127,11 +128,9 @@ def add_book():
     if session.get("user"):
         if request.method == "POST":
             # purchase link auto-generated
-            purchase_link = (
-                "https://www.amazon.co.uk/s?k=" +
-                url.quote_plus(request.form.get("book_title")
-                .replace(" ", "+") + "&tag=faketag")
-                )                
+            purchase_link = urlencode(f"https://www.amazon.co.uk/s?k=
+            {request.form.get('book_title')}"))         
+            )  
             # retrieve book info from form
             book = {
                 "book_title": request.form.get("book_title"),
