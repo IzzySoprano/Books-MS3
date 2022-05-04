@@ -43,15 +43,15 @@
       <li><a href="{{ url_for('logout') }}">Log Out</a></li>
       {% else %}
       <li> <a href="{{ url_for('home') }}">Home</a></li>
-      <li id="register"><a href="{{ url_for('register') }}">Register</a></li>
-      <li id="login"><a href="{{ url_for('login') }}">Log in</a></li>
+      <li id="register_two"><a href="{{ url_for('register') }}">Register</a></li>
+      <li id="login_two"><a href="{{ url_for('login') }}">Log in</a></li>
       </li>
       {% endif %}
     </ul>
   </nav>
 </header>
 
-<section>
+<div>
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   {% for msg in messages %}
@@ -61,7 +61,7 @@
   {% endfor %}
   {%endif %}
   {% endwith %}
-</section>
+</div>
 
 <main class="main-container">
   {% block content %} {% endblock %}

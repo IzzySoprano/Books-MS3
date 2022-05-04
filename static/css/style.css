@@ -59,7 +59,9 @@ ul li:hover{
 }
 
 #register, 
-#login {
+#login, 
+#register_two, 
+#login_two {
   border-radius: 5px;
   padding: 5px 8px;
 }
