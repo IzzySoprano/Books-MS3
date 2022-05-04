@@ -33,8 +33,7 @@
       <h5> Created by: {{ book.created_by }}</h5>
       <h5> Year Released: {{ book.release_year }}</h5>
       <h5> Review: {{ book.book_review }}</h5>
-      <h5> <a href="{{ book.purchase_link }}" target="_blank"
-        aria-label="purchase the book button"></a></h5>
+      <h5><a href="{{ book.purchase_link }}"></a></h5>
     </div>
 
     <form action='{{ url_for('add_book') }}'> </form>

@@ -128,10 +128,10 @@ def add_book():
         if request.method == "POST":
             # purchase link auto-generated
             purchase_link = (
-                ("https://www.amazon.co.uk/s?k=" +
-                request.form.get("book_title").replace(" ", "+") +
-                "&tag=faketag")
-            )
+                "https://www.amazon.co.uk/s?k=" +
+                url.quote_plus(request.form.get("book_title")
+                .replace(" ", "+") + "&tag=faketag")
+                )                
             # retrieve book info from form
             book = {
                 "book_title": request.form.get("book_title"),
