@@ -22,15 +22,17 @@
     <div class="bar2"></div>
     <div class="bar3"></div>
     <ul class="mobile-menu">
+      <li>
       {% if session.user %}
       <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('account', email=session['user']) }}">My Account</a></li>
       <li><a href="{{ url_for('add_book') }}">Add Book Review</a></li>
       <li><a href="{{ url_for('logout') }}">Log Out</a></li>
       {% else %}
-      <li> <a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('register') }}">Register</a></li>
       <li><a href="{{ url_for('login') }}">Log in</a></li>
+      </li>
       {% endif %}
     </ul>
   </div>
