@@ -110,14 +110,17 @@ def logout():
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     # checks if user is logged in
-    if session.get("user"):
-        mongo.db.books.remove({"_id": ObjectId(book_id)})
+    if session.get["user"]:
+        # grab the session user's details from db
+        email = mongo.db.users.find_one(
+        {"email": session["user"]})
         flash("Book Review Deleted")
         return redirect(url_for("home"))
+
     # if user is not logged in
     else:
         flash("You do not have permission to perform this action")
-        return redirect(url_for("edit_books"))
+        return redirect(url_for("book"))
 
 
 # Add Book to database
@@ -125,7 +128,7 @@ def delete_book(book_id):
 def add_book():
     # checks if user is logged in
     if session.get("user"):
-        if request.method == "POST": 
+        if request.method == "POST":
             # retrieve book info from form
             book = {
                 "book_title": request.form.get("book_title"),
