@@ -58,12 +58,6 @@ ul li:hover{
   transition: 0.3s;
 }
 
-#register, 
-#login {
-  border-radius: 5px;
-  padding: 5px 8px;
-}
-
 #hamburger-icon {
   margin: auto 0;
   display: block;
