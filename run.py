@@ -101,8 +101,8 @@ def account(email):
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("You have been Logged Out")
-    session.clear()
+    flash("You have been logged Out")
+    session.pop("user")
     return redirect(url_for("home"))
 
 
@@ -110,17 +110,15 @@ def logout():
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     # checks if user is logged in
-    if session.get["user"]:
-        # grab the session user's details from db
-        email = mongo.db.users.find_one(
-        {"email": session["user"]})
-        flash("Book Review Deleted")
-        return redirect(url_for("home"))
+    if session.get("user"):
+        mongo.db.book.remove({"_id": ObjectId(book_id)})
+        flash("Book review Deleted")
+        return redirect(url_for("home"))   
 
     # if user is not logged in
     else:
         flash("You do not have permission to perform this action")
-        return redirect(url_for("book"))
+        return redirect(url_for("home"))
 
 
 # Add Book to database
