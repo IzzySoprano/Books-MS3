@@ -45,29 +45,27 @@ When a user decides to register, they will be able to log books they have read a
 ### User Stories
 
 - As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
-- As a user, I want to be able to search the site to find other reviews
 - As a user, I want an easy to navigate around site
-- As a user, I want to be able to access Books's social media accounts
 - As a user, I want the structure of the site to be easy on the eye
 - As a user, I want to be able securely log out of Books
 - As a user, I want to be able to access the site on all devices
-
 ### First Time Visitor Goals
 
 - A simple and responsive navigation throughout the site
 - To be able to register to Books
-- To be able to login and post a review
-
+- To be able to login to Books
+- To be able to post a book review to Books
+- To be able to log out of Books
 ### Returning Visitor Goals
 
-- To be able to search for reviews
 - To be able to post mutiple book reviews
 
 ### Developer Goals
 
-- To create a database
-- To be able to add, edit and delete book reviews
+- To create a database with MongoDB
+- To implement CRUD funtionality
 - To create a responsive, clean and consistent UX
+- To not allow users to edit/delete other users book reviews 
 
 ### - Structure
 
@@ -111,11 +109,11 @@ Implementation
 
 ### User Story:
 
-As a user, I want the structure of the site to be easy on the eye
+As a user, I want the structure of the site to be simplistic
 
 Criteria
 
-- Have a clean UI/UX
+- Have a clean UI/UX with matching colours
 
 Implementation
 
@@ -124,7 +122,7 @@ Implementation
 
 ### User Story:
 
-As a user, I want to be able securely log out of Books
+As a user, I want to be able securely log out of Books and not have other users edit/delete the books I've posted
 
 Criteria
 
@@ -153,6 +151,7 @@ The naigation menu will contiain the following pages:
 - Home | home.html
 - Register | register.html
 - Login | login.html
+- Account | account.html
 
 When the user has successfully registered and logged in the,
 the navigation menu will consist of:
@@ -252,35 +251,9 @@ Heroku is a platform as a service (PaaS) that enables developers to build, run, 
 
 # Testing
 
-### Bugs/Errors
+Find the full Testing Document [here!](TESTING.md)
 
-In doing this project, I've encountered many bugs and errors in creating this site. I have tried to make sure I keep track of each error to showcase them and explain the error as clearly as possible in my README.
-
-#### ***Error #1***
-First initial deployment to heroku failed due to the UTF encoding.
-
-#### ***Solution***
-After changing to 'Save with encoding', I managed to successfully deploy to Heroku
-![Heroku deployment fai](static/images/Heroku-deploy-fail.png)
-
-#### ***Error #2***
-Upon first testing to see if my registration page was working and users were able to register, I encontered a Typo error which stated, **rn dumps rv = \_json.dumps(obj, kwargs)**
-This error prevented me from adding the user to my Mongo collection
-![Typo Error](static/images/Typo-error.png)
-
-#### ***Solution***
-After speaking with tutor support, I successfully mananged to add my users to my Mongo collections everytime a user registered.
-![Collections](static/images/Collections.png)
-
-#### ***Error #3***
-Upon successfully deployment, I encountered an 'Application error' for my deployment link. I found that upon looking into my heroku log, **_error code=h10_** would come up.
-![Heroku application error](static/images/Application-error.png)
-
-#### ***Solution***
-The solution was that there was a bug in my Procfile. After speaking my mentor, he pointed out that I hadn't correctly typed:
-`web:gunicorn run:app`
-
-Once I correctly changed it to `web: gunicorn run:app --preload`, the error was solved.
+[Back to contents](#table-of-contents)
 
 # Deployment
 #### Creation of a Python Virtual Environment ####
