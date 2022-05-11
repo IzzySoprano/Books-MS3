@@ -68,8 +68,6 @@ When a user decides to register, they will be able to log books they have read a
 
 ### Structure
 
-### User Story:
-
 ```
 As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
 ```
@@ -82,9 +80,9 @@ Implementation
 
 - Install Mongo DB database
 
-### User Story:
-
-**As a user, I want an easy to navigate around site**
+```
+As a user, I want an easy to navigate around site
+```
 
 Criteria
 
@@ -96,9 +94,9 @@ Implementation
 
 - The UI/UX for the site has to be consistent and clean in order to achieve this
 
-### User Story:
-
-**As a user, I want to be able to access Books's social media accounts**
+```
+As a user, I want to be able to access Books's social media accounts
+```
 
 Criteria
 
@@ -108,9 +106,9 @@ Implementation
 
 - Add social media icons in the footer section of the site
 
-### User Story:
-
-**As a user, I want the structure of the site to be simplistic**
+```
+As a user, I want the structure of the site to be simplistic**
+```
 
 Criteria
 
@@ -121,9 +119,9 @@ Implementation
 - Have a consistent UI/UX design throughout the site
 - Keeping the colour theme and font simple and consistent throughout the site
 
-### User Story:
-
-**As a user, I want to be able to access the site on all devices**
+```
+As a user, I want to be able to access the site on all devices
+```
 
 Criteria
 
