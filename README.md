@@ -388,4 +388,4 @@ pip3 freeze --local > requirements.txt
 - **Slack Community**
   - [Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
   - [Taylor's Read It](https://github.com/taybro23/Read-It-MS3)
-  My Mentor Naredner Singh 
+  - My Mentor Naredner Singh 
