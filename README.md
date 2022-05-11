@@ -376,16 +376,16 @@ pip3 freeze --local > requirements.txt
   Tutor support
 
 - **Youtube** 
-  *Login Page*
+  - *Login Page*
   [How To Create Login Form In HTML and CSS | Make Sign In Form Design](https://www.youtube.com/watch?v=OWNxUVnY3pg)
 
-  *Registration Page*
+  - *Registration Page*
   [Design & Code Responsive Sign Up Form HTML CSS | XO PIXEL](https://www.youtube.com/watch?v=fHqjQBRQxUI&list=PL-wBgXylSsLUjExoShNxnpju44dPRpVtw&index=13)
 
-  *Responsive Hamburger Menu*
+  - *Responsive Hamburger Menu*
   [JavaScript - How to Create a Responsive Hamburger Menu with HTML, CSS, & JavaScript](https://www.youtube.com/watch?v=flItyHiDm7E&ab_channel=codefoxx)
 
 - **Slack Community**
-  [Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
-  [Taylor's Read It](https://github.com/taybro23/Read-It-MS3)
+  - [Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
+  - [Taylor's Read It](https://github.com/taybro23/Read-It-MS3)
   My Mentor Naredner Singh 
