@@ -372,8 +372,8 @@ pip3 freeze --local > requirements.txt
 # Credits
 
 - **Code Institute**
-  Task Manager Tutorial
-  Tutor support
+  - Task Manager Tutorial
+  - Tutor support
 
 - **Youtube** 
   - *Login Page*
