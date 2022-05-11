@@ -163,7 +163,7 @@ the navigation menu will consist of:
 
 I've chosen three colours to keep the UI/UX clean and keep the colour scheme of the site consistent by adding this colours to the navbar, footer, login and registration pages.
 
-I'v gone with:
+I've gone with:
 
 - #000000 | Black
 - #FCFCFF | White
