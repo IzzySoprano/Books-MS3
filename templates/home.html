@@ -26,10 +26,10 @@
     <img src=" {{ book.image_url }} " alt="book-card">
 
     <div class="book-details">
-      <h3> Title: {{ book.book_title }}</h3>
+      <h2> {{ book.book_title }}</h2>
       <h5> Author: {{ book.author }}</h5>
       <h5> Genre: {{ book.genre }}</h5>
-      <h5> Rating: {{ book.rating }}</h5>
+      <span> Rating <i class="fas fa-star">: {{ book.rating }} </i></span>
       <h5> Created by: {{ book.created_by }}</h5>
       <h5> Year Released: {{ book.release_year }}</h5>
       <h5> Review: {{ book.book_review }}</h5>

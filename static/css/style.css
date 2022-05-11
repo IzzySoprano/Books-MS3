@@ -226,6 +226,7 @@ footer {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  padding: 30px;
 }
 
 .card:hover {
@@ -238,18 +239,6 @@ footer {
 
 .book-details {
   padding: 1rem;
-}
-
-.book-details > h5 > a {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.6rem;
-  background-color: #ffc107;
-  color: black;
 }
 
 /* Login Page */
