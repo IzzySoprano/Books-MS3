@@ -70,7 +70,9 @@ When a user decides to register, they will be able to log books they have read a
 
 ### User Story:
 
-**As a user, I want to be able to register to Books using an email and password, log in and review a book I have read**
+```
+As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
+```
 
 Criteria
 
