@@ -27,7 +27,6 @@
 6. [Frameworks, Libaries, Tools](#FrameworksLibariesTools)
 
 7. [Testing](#Testing)
-   - [Bugs](###Bugs)
 
 8. [Deployment](#Deployment)
 
@@ -67,11 +66,11 @@ When a user decides to register, they will be able to log books they have read a
 - To create a responsive, clean and consistent UX
 - To not allow users to edit/delete other users book reviews 
 
-### - Structure
+### Structure
 
-### User Stories:
+### User Story:
 
-As a user, I want to be able to register to Books using an email and password, log in and review a book I have read
+**As a user, I want to be able to register to Books using an email and password, log in and review a book I have read**
 
 Criteria
 
@@ -83,7 +82,7 @@ Implementation
 
 ### User Story:
 
-As a user, I want an easy to navigate around site
+**As a user, I want an easy to navigate around site**
 
 Criteria
 
@@ -97,11 +96,11 @@ Implementation
 
 ### User Story:
 
-As a user, I want to be able to access Books's social media accounts
+**As a user, I want to be able to access Books's social media accounts**
 
 Criteria
 
-- Have the site's social media links displayed in the footer
+- Have the site's social media links displayed in the footer (For the purpsoe of this project, the links in the footer won't be live)
 
 Implementation
 
@@ -109,7 +108,7 @@ Implementation
 
 ### User Story:
 
-As a user, I want the structure of the site to be simplistic
+**As a user, I want the structure of the site to be simplistic**
 
 Criteria
 
@@ -122,19 +121,7 @@ Implementation
 
 ### User Story:
 
-As a user, I want to be able securely log out of Books and not have other users edit/delete the books I've posted
-
-Criteria
-
-- Have a functional database that allows users to register using their email and password
-
-Implementation
-
-- Implement mongoDB and Flask into the project to link the project together
-
-### User Story:
-
-As a user, I want to be able to access the site on all devices
+**As a user, I want to be able to access the site on all devices**
 
 Criteria
 
@@ -208,45 +195,66 @@ When the user has successfully posted their book review, it will be displayed in
 
 # Features
 
+### Main Features
+
+-	Responsiveness – The site is fully responsive to all screen sizes. 
+
+-	Navbar and footer – The navbar and footer will be the same throughout the entire site, with the same links and information across all pages. The will both sit at the top and bottom of each page respectively, and will not scroll up or down with the user. This gives the user more screen space to view the site. I went with CSS for both my navbar and footer and added a hamburger to my navbar for mobile responsiveness. 
+
+-	Flash messages – Flash messages are there to provide the user with feedback once registered, logged in, logged out etc.
+### Home Page
+
+-	Logo – The home page features the site logo in black to compensate the white background.
+
+-	Book Review Cards – I used CSS to help display the book reviews submitted to the site. Each of these cards has the same layout; Book image, and the review information. Each card is the same size; this is to make sure that there are no spacing errors, as the book images may be different sizes when added by a user. 
+
+-	Buttons – On each review card, there is delete and edit button. The Delete and Edit buttons will only be available to view by the user that has created them.
+### My Account
+
+-	My Reviews – The user will have their own book reviews here, and they will be in the same display format as on the Home page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, the page will display a blank page with the heading 'My Reviews'
+
+### Add/Edit Book Review, Register/Log In Pages
+
+-	Forms – The forms on these pages are clear and concise, and responsive across all screen sizes. 
 # **Languages Used**
 
-[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 Used as the main markup language for the website content.
 
-[Python3](https://www.python.org/)
+- [Python3](https://www.python.org/)
 Used to create the main application functionality
 
-[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 Used to style the individual webpages.
 
-# **Frameworks, Database, Tools, Deployment**
+# **Frameworks, Database, Tools**
 
 **Libraries**
-[Flask](https://www.fullstackpython.com/flask.html)
+- [Flask](https://www.fullstackpython.com/flask.html)
 Python web framework
 
-[Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/)
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/)
 A comprehensive WSGI web application library installed with Flask
 
-[PyMongo](https://pymongo.readthedocs.io/en/stable/)
+- [PyMongo](https://pymongo.readthedocs.io/en/stable/)
 PyMongo is a Python tool for working with MongoDB
 
-[Flask-Pymongo](https://flask-pymongo.readthedocs.io/en/latest/)
+- [Flask-Pymongo](https://flask-pymongo.readthedocs.io/en/latest/)
 Flask-PyMongo bridges the gap between Flask and PyMongo
 
 **Database**
-[MongoDB Atlas](https://www.mongodb.com/)
+- [MongoDB Atlas](https://www.mongodb.com/)
 Cloud based document-oriented database used to store the backend data.
 
 **Tools**
-[Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 Visual Studio Code was used for the creation of this site.
 
-[Adobe Logo Maker](https://www.adobe.com/express/create/logo)
+- [Adobe Logo Maker](https://www.adobe.com/express/create/logo)
 Adobe logo maker was used for the creation of the logo
 
 **Deployment**
-[Heroku](https://www.heroku.com/)
+- [Heroku](https://www.heroku.com/)
 Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
 # Testing
@@ -348,7 +356,6 @@ pip3 freeze --local > requirements.txt
 | MONGO_URI | YOUR_OWN_MONGODB_URI |
 | MONGO_DBNAME | YOUR_OWN_MONGODB_DATABASE_NAME |
 
-
 - In the Heroku App Deploy page: 
   - Select GitHub from the Deployment Method options.
   - Select Connect to GitHub.
@@ -356,23 +363,29 @@ pip3 freeze --local > requirements.txt
   - Search for and select the repository to be linked in Github.
   - Select Connect.
   - Select Enable Automatic Deployment from the GitHub Master / Main branch
-
 #### Launch the App ####
 
 - Click Open App in Heroku to launch the App in a new browser window.
 
-
 **Successful deployment**
 ![Heroku deployment](static/images/Deployment-success.png)
-
 # Credits
 
-Code Insitute Task Manager Tutorial
+- **Code Institute**
+  Task Manager Tutorial
+  Tutor support
 
-Login Page
-[How To Create Login Form In HTML and CSS | Make Sign In Form Design](https://www.youtube.com/watch?v=OWNxUVnY3pg)
+- **Youtube** 
+  *Login Page*
+  [How To Create Login Form In HTML and CSS | Make Sign In Form Design](https://www.youtube.com/watch?v=OWNxUVnY3pg)
 
-Registration Page
-[Design & Code Responsive Sign Up Form HTML CSS | XO PIXEL](https://www.youtube.com/watch?v=fHqjQBRQxUI&list=PL-wBgXylSsLUjExoShNxnpju44dPRpVtw&index=13)
+  *Registration Page*
+  [Design & Code Responsive Sign Up Form HTML CSS | XO PIXEL](https://www.youtube.com/watch?v=fHqjQBRQxUI&list=PL-wBgXylSsLUjExoShNxnpju44dPRpVtw&index=13)
 
-[Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
+  *Responsive Hamburger Menu*
+  [JavaScript - How to Create a Responsive Hamburger Menu with HTML, CSS, & JavaScript](https://www.youtube.com/watch?v=flItyHiDm7E&ab_channel=codefoxx)
+
+- **Slack Community**
+  [Simon Vardy's The Reading Room](https://github.com/simonjvardy/the-reading-room)
+  [Taylor's Read It](https://github.com/taybro23/Read-It-MS3)
+  My Mentor Naredner Singh 
