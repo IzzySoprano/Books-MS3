@@ -80,6 +80,7 @@ Implementation
 
 - Install Mongo DB database
 
+### User Story
 ```
 As a user, I want an easy to navigate around site
 ```
@@ -93,7 +94,7 @@ Criteria
 Implementation
 
 - The UI/UX for the site has to be consistent and clean in order to achieve this
-
+### User Story
 ```
 As a user, I want to be able to access Books's social media accounts
 ```
@@ -105,7 +106,7 @@ Criteria
 Implementation
 
 - Add social media icons in the footer section of the site
-
+### User Story
 ```
 As a user, I want the structure of the site to be simplistic**
 ```
@@ -118,11 +119,10 @@ Implementation
 
 - Have a consistent UI/UX design throughout the site
 - Keeping the colour theme and font simple and consistent throughout the site
-
+### User Story
 ```
 As a user, I want to be able to access the site on all devices
 ```
-
 Criteria
 
 - Have the site responsive across all device platforms
