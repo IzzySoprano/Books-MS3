@@ -113,7 +113,7 @@ def delete_book(book_id):
     if session.get("user"):
         mongo.db.book.remove({"_id": ObjectId(book_id)})
         flash("Book review Deleted")
-        return redirect(url_for("home"))   
+        return redirect(url_for("home"))
 
     # if user is not logged in
     else:
