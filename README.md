@@ -149,7 +149,7 @@ the navigation menu will consist of:
 ## - Wireframes
 
 **Home**
-![Home](assets\Wireframes/images/Home.png)
+![Home](assets/Wireframes/images/Home.png)
 
 **Login**
 ![Login](assets/Wireframes/images/Login.png)
