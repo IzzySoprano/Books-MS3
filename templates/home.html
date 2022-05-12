@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<!-- Books logo -->
 <div class="bg-wallpaper">
   <img class="wallpaper" src="{{url_for('static', filename='/images/BooksLogo.png')}}" alt="wallpaper" />
 </div>
@@ -27,12 +27,12 @@
 
     <div class="book-details">
       <h2> {{ book.book_title }}</h2>
-      <h5> Author: {{ book.author }}</h5>
-      <h5> Genre: {{ book.genre }}</h5>
-      <span> Rating <i class="fas fa-star">: {{ book.rating }} </i></span>
-      <h5> Created by: {{ book.created_by }}</h5>
-      <h5> Year Released: {{ book.release_year }}</h5>
-      <h5> Review: {{ book.book_review }}</h5>
+      <p> Author: {{ book.author }}</p>
+      <p> Genre: {{ book.genre }}</p>
+      <span> Rating: {{ book.rating }} <i class="fas fa-star"> </i></span>
+      <p> Created by: {{ book.created_by }}</p>
+      <p> Year Released: {{ book.release_year }}</p>
+      <p> Review: {{ book.book_review }}</p>
     </div>
 
     <form action='{{ url_for('add_book') }}'></form>
