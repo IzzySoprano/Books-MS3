@@ -49,7 +49,6 @@ ul a {
 }
 
 ul li {
-  padding: 5px;
   margin-left: 10px;
 }
 
@@ -534,7 +533,11 @@ footer {
     white-space: nowrap;
     overflow: hidden;
   }
-
+}
+@media only screen and (max-width: 320px) {
+  .socials a i {
+    position: fixed;
+  }
 }
 
 /* Media Queries for Registration page */
