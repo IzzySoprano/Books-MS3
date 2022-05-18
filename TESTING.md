@@ -50,8 +50,7 @@
 ### Book Review Cards
 
 -	Hover – I added a hover effect on the book review cards so that the user can easily see which book review they are looking at, and this works well.  
--	Info & Review Icon – The Info & Review icon works as intended, sliding up the book review information over the book image.
--	Buttons – The correct buttons are displayed depending on whether the user is logged in, logged out or is the Admin of the site. 
+-	Buttons – The correct buttons are displayed depending on whether the user is logged in or logged out.
 
 ### Buttons
 
@@ -66,6 +65,7 @@
 
 -	Pre-fill – When a user edits a book review, the form is correctly filled in with the information they have previously entered (bar the 'genre' input which is mentioned in the Bugs and Fixes section). 
 -	Buttons – Both the cancel and edit review buttons work as intended, with the edit review button correctly updating the database. 
+- Rating - A Star icon is added from font awesome to give the interface a positive feel. 
 
 ### Flash Messages
 
