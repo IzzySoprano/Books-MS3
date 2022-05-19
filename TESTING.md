@@ -22,7 +22,7 @@
 
 ### CSS3 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to make sure my CSS was compliant – No errors found.
-![CSS Validator](static/images/Validator/CSS.png)
+![CSS Validator]()
 
 ### Python
 [PEP8 Online](http://pep8online.com/) was what I used to make sure my Python Code was PEP8 compliant – No errors found.
