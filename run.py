@@ -112,6 +112,8 @@ def delete_book(book_id):
     # checks if user is logged in
     if session.get("user"):
         mongo.db.book.remove({"_id": ObjectId(book_id)})
+        book = mongo.db.books.find_one({'_id': ObjectId(book_id)})
+        book = mongo.db.books.find_one_and_delete({'_id': ObjectId(book_id)})
         flash("Book review Deleted")
         return redirect(url_for("home"))
 
